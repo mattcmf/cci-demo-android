@@ -19,24 +19,24 @@ jobs:
           name: Create AVD
           command: |
             echo "n" | avdmanager -v create avd -n androidlearn -k "system-images;android-25;google_apis;armeabi-v7a" -c 512M -g google_apis  -d "Nexus 7 2013"
-      - run:
-          name: Run Emulator
-          background: true
-          command: |
-            $ANDROID_SDK_ROOT/tools/emulator -no-window -noaudio -no-boot-anim -gpu swiftshader @androidlearn
-      - run:
-          name: Wait for Emulator
-          no_output_timeout: 15m
-          command: |
-            sleep 15
-            $ANDROID_SDK_ROOT/platform-tools/adb devices
-            sleep 10
-      - run:
-          name: Fetch logcat and props
-          background: true
-          command: |
-            $ANDROID_SDK_ROOT/platform-tools/adb logcat >> ./artifacts/logcat.txt
-            $ANDROID_SDK_ROOT/platform-tools/adb shell getprop >> ./artifacts/props.txt
+     # - run:
+        #  name: Run Emulator
+        #  background: true
+        #  command: |
+        #    $ANDROID_SDK_ROOT/tools/emulator -no-window -noaudio -no-boot-anim -gpu swiftshader @androidlearn
+   #  - run:
+   #      name: Wait for Emulator
+   #      no_output_timeout: 15m
+   #      command: |
+   #        sleep 15
+   #        $ANDROID_SDK_ROOT/platform-tools/adb devices
+   #        sleep 10
+   #  - run:
+   #      name: Fetch logcat and props
+   #      background: true
+   #      command: |
+   #        $ANDROID_SDK_ROOT/platform-tools/adb logcat >> ./artifacts/logcat.txt
+   #        $ANDROID_SDK_ROOT/platform-tools/adb shell getprop >> ./artifacts/props.txt
       - run:
           name: Run Android Connected Tests
           command: |
