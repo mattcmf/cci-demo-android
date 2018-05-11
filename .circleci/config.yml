@@ -59,7 +59,7 @@ jobs:
 
             # Install package
             $ANDROID_SDK_ROOT/platform-tools/adb install /home/android/androidlearn/app/build/outputs/apk/app-debug.apk
-            ./gradlew connectedAndroidTest
+            ./gradlew test
       - store_artifacts:
           path: ~/androidlearn/artifacts
           destination: env
