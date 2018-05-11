@@ -42,7 +42,7 @@ jobs:
           command: |
 
             ./gradlew assembleDebug
-      
+
             ./gradlew test
       - store_artifacts:
           path: ~/androidlearn/artifacts
