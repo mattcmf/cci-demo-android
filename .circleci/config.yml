@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: api-27-alpha
+      - image: circleci/android:api-27-alpha
     working_directory: ~/androidlearn
     steps:
       # Ensure your image has git, otherwise the checkout step will fail
